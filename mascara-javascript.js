@@ -1,5 +1,22 @@
 onload = function () {
 	
+	/*
+	* Celular
+	*/
+	let data = document.getElementById("cel");
+	if(!data) return;
+	data.onkeyup = function (e) {
+	  var data = this;
+	  if (/[a-z]/gi.test(data.value))
+	    data.value = data.value.slice(0, data.value.length - 1);
+
+	  if (data.value.length === 1) data.value = `(${data.value}`;
+	  if (data.value.length == 3) data.value += ")";
+	  if (data.value.length == 4) data.value += " ";
+	  if (data.value.length == 9) data.value += "-";
+	  if (data.value.length >= 14) data.value = data.value.slice(0, 14);
+	};
+	
 	/**
 	 * Data
 	 */
